@@ -9,7 +9,7 @@
   			<li><%= podcast.name %>: <%= podcast.description %></li>
   		<% end %>
   		</ul>
-	  	<%= link_to "Start another Podcast", signup_path, class: "btn btn-large btn-primary" %>
+	  	<%= link_to "Start another Podcast", new_user_podcast_path(current_user[:id]), class: "btn btn-large btn-primary" %>
   	<% else %>
     <p>
   	<%= link_to "Start a Podcast", new_user_podcast_path(current_user[:id]), class: "btn btn-large btn-primary" %>
