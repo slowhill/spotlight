@@ -1,28 +1,42 @@
-<h1>New User</h1>
-<%= form_for @user, url: {action: "create"}, html: {class:""} do |f| %>
-	<p>
-	<%= f.label :fname, "First Name" %>
-	<%= f.text_field :fname %>
-	</p>
-	<p>
-	<%= f.label :lname, "Last Name" %>
-	<%= f.text_field :lname %>
-	</p>
-	<p>
-	<%= f.label :email, "Email" %>
-	<%= f.text_field :email, type: "email"%>
-	</p>
-	<p>
-	<%= f.label :username, "Username" %>
-	<%= f.text_field :username %>
-	</p>
-	<p>
-	<%= f.label :password, "Password" %>
-	<%= f.password_field :password %>
-	</p>
-	<p>
-	<%= f.label :password_confirmation, "Confirm Password" %>
-	<%= f.password_field :password_confirmation %>
-	</p>
-	<%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+<div class="row-fluid" style="margin:0 auto;float:none;">
+	<div class="span3" style="margin:0 auto;float:none;">
+		<h1>New User</h1>
+		<% if @user.errors.any? %>
+			<div class="alert alert-error">
+				<strong>Error! Unable to create account:</strong><br>
+				<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</div>
+		<% end %>
+		<%= form_for @user, url: {action: "create"}, html: {class:""} do |f| %>
+			<p>
+			<%= f.label :fname, "First Name" %>
+			<%= f.text_field :fname %>
+			</p>
+			<p>
+			<%= f.label :lname, "Last Name" %>
+			<%= f.text_field :lname %>
+			</p>
+			<p>
+			<%= f.label :email, "Email" %>
+			<%= f.text_field :email, type: "email"%>
+			</p>
+			<p>
+			<%= f.label :username, "Username" %>
+			<%= f.text_field :username %>
+			</p>
+			<p>
+			<%= f.label :password, "Password" %>
+			<%= f.password_field :password %>
+			</p>
+			<p>
+			<%= f.label :password_confirmation, "Confirm Password" %>
+			<%= f.password_field :password_confirmation %>
+			</p>
+			<p style="text-align:center;">
+			<%= f.submit "Submit", class: "btn btn-primary" %>
+			</p>
+		<% end %>
+	</div>
+</div>
