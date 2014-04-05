@@ -6,7 +6,7 @@
   	<% if @current_user.podcasts.any? %>
   		<ul class="nav nav-tabs nav-stacked" style="text-align:left;">
   		<% @current_user.podcasts.each do |podcast| %>
-        <li><%= link_to user_podcast_path(@current_user.id, podcast.id) do %>
+        <li><%= link_to user_podcast_path(podcast.user_id, podcast.id) do %>
           <%= podcast.name %> <br><small><%= podcast.description %></small><% end %></li>
 
   		<% end %>
