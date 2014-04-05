@@ -1,1 +1,27 @@
-<% provide(:title, "Edit user") %>
+<% provide(:title, "Update Profile") %>
+<h1>Update Profile</h1>
+<div class="row">
+	<div class="span6 offset4">
+		<%= form_for(@user) do |f| %>
+		<%= render 'users/errorform' %>
+
+		<%= f.label :fname %>
+		<%= f.text_field :fname %>
+
+		<%= f.label :lname %>
+		<%= f.text_field :lname %>
+
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+
+		<%= f.label :password, "Please enter current password or type a new one" %>
+		<%= f.password_field :password %>
+
+		<%= f.label :password_confirmation, "Confirm Password" %>
+		<%= f.password_field :password_confirmation %>
+		<p>
+		<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+		</p>
+		<% end %>
+	</div>
+</div>
