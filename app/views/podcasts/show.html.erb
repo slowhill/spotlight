@@ -9,7 +9,7 @@
 			<!-- make it if-contact-exists-soemthing-toolazyatm
 			<li class="list-header">Contact</li>-->
 			<!-- make if-admin-check-->
-			<% if !current_user?(@user) %>
+			<% if current_user.id == @podcast.user_id %>
 			<li class="podbuttons"><%= link_to '#', class: "btn btn-success" do %>
 				<i class="icon-bullhorn"></i> Start Broadcast
 				<% end %>
