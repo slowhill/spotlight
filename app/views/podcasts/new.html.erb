@@ -1,10 +1,17 @@
 <% provide(:title, "Make a Podcast") %>
-<h1>Making a podcast</h1>
-<h2>PARAM: <%= @user_id %></h2>
-<h2>PODCAST USERID: <%= @podcast.user_id %></h2>
+<h1>Start a Podcast</h1>
 
 <%= form_for(@podcast, :url=>user_podcasts_path(@user)) do |f| %>
-	
+	<% if @podcast.errors.any? %>
+		<div class="alert alert-error">
+		<ul>
+			<% @podcast.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			
+		</ul>
+		</div>
+	<% end %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
