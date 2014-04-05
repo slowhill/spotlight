@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405132331) do
+ActiveRecord::Schema.define(version: 20140405142205) do
 
   create_table "episodes", force: true do |t|
     t.integer  "podcast_id"
@@ -73,6 +73,9 @@ ActiveRecord::Schema.define(version: 20140405132331) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
