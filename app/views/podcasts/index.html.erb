@@ -1,6 +1,13 @@
 <h1>All Podcasts</h1>
-	<ul>
-	<% @podcast.each do |podcast| %>
-		<li><%= podcast.name %>: <%= podcast.description %></li>
-	<% end %>
-	</ul>
+	<table class="table table-hover">
+        <thead>
+          <tr><th>Title</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+  		<% @podcast.each do |podcast| %>
+        <tr>
+  			<td><%= podcast.name %></td><td> <%= podcast.description %></td>
+        </tr>
+  		<% end %>
+      </tbody>
+  	</table>
