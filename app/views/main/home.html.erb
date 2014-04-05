@@ -11,8 +11,13 @@
   		</ul>
 	  	<%= link_to "Start another Podcast", signup_path, class: "btn btn-large btn-primary" %>
   	<% else %>
+    <p>
   	<%= link_to "Start a Podcast", new_user_podcast_path(current_user[:id]), class: "btn btn-large btn-primary" %>
+    </p>
   	<% end %>
+    <p>
+    <%= link_to "Or Watch a Podcast", podcasts_path, class: "btn btn-secondary" %>
+    </p>
   <% else %>
   <h2>homepage</h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>

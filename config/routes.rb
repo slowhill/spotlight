@@ -2,6 +2,8 @@ Spotlight::Application.routes.draw do
   resources :users do
     resources :podcasts
   end
+
+  resources :podcasts, only: [:index]
   resources :sessions, only: [:new, :create, :destroy]
 
   root 'main#home'

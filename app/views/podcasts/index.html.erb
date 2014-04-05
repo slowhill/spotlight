@@ -1,0 +1,6 @@
+<h1>All Podcasts</h1>
+	<ul>
+	<% @podcast.each do |podcast| %>
+		<li><%= podcast.name %>: <%= podcast.description %></li>
+	<% end %>
+	</ul>
