@@ -1,2 +1,28 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>New User</h1>
+<%= form_for @user, url: {action: "create"}, html: {class:""} do |f| %>
+	<p>
+	<%= f.label :fname, "First Name" %>
+	<%= f.text_field :fname %>
+	</p>
+	<p>
+	<%= f.label :lname, "Last Name" %>
+	<%= f.text_field :lname %>
+	</p>
+	<p>
+	<%= f.label :email, "Email" %>
+	<%= f.text_field :email, type: "email"%>
+	</p>
+	<p>
+	<%= f.label :username, "Username" %>
+	<%= f.text_field :username %>
+	</p>
+	<p>
+	<%= f.label :password, "Password" %>
+	<%= f.password_field :password %>
+	</p>
+	<p>
+	<%= f.label :password_confirmation, "Confirm Password" %>
+	<%= f.password_field :password_confirmation %>
+	</p>
+	<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
