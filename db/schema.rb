@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405071350) do
+ActiveRecord::Schema.define(version: 20140405132331) do
 
   create_table "episodes", force: true do |t|
     t.integer  "podcast_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140405071350) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "user", force: true do |t|
     t.string   "fname"
     t.string   "lname"
     t.string   "email"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20140405071350) do
     t.string   "password_digest"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "user", ["email"], name: "index_user_on_email", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

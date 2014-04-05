@@ -1,4 +1,4 @@
-class Users < ActiveRecord::Base
+class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	validates :fname, presence: true
 	validates :lname, presence: true

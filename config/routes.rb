@@ -1,9 +1,12 @@
 Spotlight::Application.routes.draw do
-  root "main#home"
-  post "users/create" #consider changing to signup/create or signup/done
-  get "users/done"
-  match "/about",  to: "main#about",    via: "get"
-  match "/signup", to: "users#new",    via: "get"
+  resources :users
+
+  root 'main#home'
+  # post "users/create" #consider changing to signup/create or signup/done
+  # get "users/done"
+  match '/about',  to: 'main#about',    via: 'get'
+  match '/signup', to: 'users#new',     via: 'get'
+  # match "/signup", to: "users#new",    via: "get"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
