@@ -4,18 +4,13 @@
 
   <% if signed_in? %>
   	<% if @current_user.podcasts.any? %>
-  		<table class="table table-hover">
-        <thead>
-          <tr><th>Title</th><th>Description</th></tr>
-        </thead>
-        <tbody>
+  		<ul class="nav nav-tabs nav-stacked" style="text-align:left;">
   		<% @current_user.podcasts.each do |podcast| %>
-        <tr>
-  			<td><%= podcast.name %></td><td> <%= podcast.description %></td>
-        </tr>
+        <li><%= link_to user_podcast_path(@current_user.id, podcast.id) do %>
+          <%= podcast.name %> <br><small><%= podcast.description %></small><% end %></li>
+
   		<% end %>
-      </tbody>
-  		</table>
+      </ul>
 	  	<%= link_to "Start another Podcast", new_user_podcast_path(current_user[:id]), class: "btn btn-large btn-primary" %>
   	<% else %>
       <p>
