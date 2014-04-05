@@ -1,7 +1,7 @@
 Spotlight::Application.routes.draw do
-  match '/',      to:'main#home',     via: 'get'
-  match '/help',  to: 'main#help',    via: 'get'
-  get "users/new"
+  root "main#home"
+  match "/help",  to: "main#help",    via: "get"
+  match "/signup" to: "users#new",    via: "get"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
