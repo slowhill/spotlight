@@ -9,7 +9,7 @@
 				<% end %>
 			</div>
 		<% end %>
-		<%= form_for @user, url: {action: "create"}, html: {class:""} do |f| %>
+		<%= form_for @user, url: {action: "create"} do |f| %>
 			<p>
 			<%= f.label :fname, "First Name" %>
 			<%= f.text_field :fname %>
