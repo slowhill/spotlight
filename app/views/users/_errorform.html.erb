@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+	<div class="alert alert-error">
+		<strong>Error! Unable to create account:</strong><br>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		</ul>
+		<% end %>
+	</div>
+<% end %>
