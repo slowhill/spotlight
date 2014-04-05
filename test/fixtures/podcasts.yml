@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  phone: 
+  twitter: 
+  facebook: 
+  email: 
+  website: 
+  description: 
+  live: 
+  user_id: 1
+
+two:
+  name: 
+  phone: 
+  twitter: 
+  facebook: 
+  email: 
+  website: 
+  description: 
+  live: 
+  user_id: 1
