@@ -2,9 +2,19 @@
 <div class="center hero-unit">
   <h1>Spotlight</h1>
 
-  <h2>
-    homepage
-  </h2>
-
+  <% if signed_in? %>
+  	<% if @current_user.podcasts.any? %>
+  		<ul>
+  		<% @current_user.podcasts.each do |podcast| %>
+  			<li><%= podcast.name %>: <%= podcast.description %></li>
+  		<% end %>
+  		</ul>
+	  	<%= link_to "Start another Podcast", signup_path, class: "btn btn-large btn-primary" %>
+  	<% else %>
+  	<%= link_to "Start a Podcast", new_user_podcast_path(current_user[:id]), class: "btn btn-large btn-primary" %>
+  	<% end %>
+  <% else %>
+  <h2>homepage</h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>

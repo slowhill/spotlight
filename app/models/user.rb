@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :podcasts, dependent: :destroy
 	before_create :create_remember_token
 	before_save { self.email = email.downcase }
 	validates :fname, presence: true

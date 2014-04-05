@@ -1,5 +1,7 @@
 Spotlight::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :podcasts
+  end
   resources :sessions, only: [:new, :create, :destroy]
 
   root 'main#home'
@@ -9,6 +11,7 @@ Spotlight::Application.routes.draw do
   match '/signup', to: 'users#new',     via: 'get'
   match '/login',  to: 'sessions#new',  via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
+  # match '/user[:username]/podcasts/new', to: 'podcasts#new', via: 'get'
   # match "/signup", to: "users#new",    via: "get"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
