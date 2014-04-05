@@ -2,3 +2,15 @@
 <h1>Making a podcast</h1>
 <h2>PARAM: <%= @user_id %></h2>
 <h2>PODCAST USERID: <%= @podcast.user_id %></h2>
+
+<%= form_for(@podcast, :url=>user_podcasts_path(@user)) do |f| %>
+	
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+	<p>
+	<%= f.submit "Create Podcast", class: "btn btn-primary btn-large" %>
+	</p>
+<% end %>
