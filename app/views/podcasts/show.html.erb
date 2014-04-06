@@ -11,7 +11,7 @@
 			<!-- make if-admin-check-->
 			<% if current_user?(@podcast.user) %>
 			<li class="podbuttons"></li>
-			<%= link_to '#', class: "btn btn-success btn-block" do %>
+			<%= link_to new_user_podcast_episode_path(current_user[:id], @podcast[:id]), class: "btn btn-success btn-block" do %>
 				<i class="icon-bullhorn"></i> Start Broadcast
 				<% end %>
 				<%= link_to user_podcast_path, method: :delete,

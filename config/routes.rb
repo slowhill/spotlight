@@ -1,6 +1,8 @@
 Spotlight::Application.routes.draw do
   resources :users do
-    resources :podcasts
+    resources :podcasts do
+      resources :episodes
+    end
   end
 
   resources :podcasts, only: [:index]
