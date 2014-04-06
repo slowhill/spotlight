@@ -22,6 +22,7 @@ class ChatController < WebsocketRails::BaseController
 
   #user submits a new comment
   def new_comment
-  	
+  	# :channel_name should be that podcast episode's id
+  	#WebsocketRails[:channel_name].trigger(:event_name, object_to_send)
   end
 end
