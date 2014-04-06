@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405183408) do
+ActiveRecord::Schema.define(version: 20140406071517) do
 
   create_table "episodes", force: true do |t|
     t.integer  "podcast_id"
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20140405183408) do
     t.string   "title"
     t.string   "description"
     t.boolean  "upvote_type"
-    t.string   "default"
-    t.string   "false"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
