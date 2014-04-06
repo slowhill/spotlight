@@ -36,6 +36,13 @@
 		<div>
 			<h2 class="lpadding h2ep">Episodes</h2>
 			<% if @podcast.episodes.any? %>
+				<div class="accordion" id="epaccord">
+					<div class="accordion-group">
+						<% @podcast.episodes.each do |episode| %>
+						<%= render partial: "episode", locals: {episode: episode} %>
+						<% end %>
+					</div>
+				</div>
 			<% else %>
 				<p class="lpadding"><b><%= @podcast.name %></b> has not broadcasted an episode yet.</p>
 			<% end %>
