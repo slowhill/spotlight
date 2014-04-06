@@ -10,6 +10,7 @@
 			<li class="list-header">Contact</li>-->
 			<!-- make if-admin-check-->
 			<% if current_user?(@podcast.user) %>
+			<li class="podbuttons"></li>
 			<%= link_to '#', class: "btn btn-success btn-block" do %>
 				<i class="icon-bullhorn"></i> Start Broadcast
 				<% end %>
