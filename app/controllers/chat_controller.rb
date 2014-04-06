@@ -9,4 +9,19 @@ class ChatController < WebsocketRails::BaseController
 
   def client_connected
   end 
+
+  #User votes a comment up
+  def upvote_comment 
+  	
+  end
+
+  #user takes back their vote
+  def unvote_comment
+  	
+  end
+
+  #user submits a new comment
+  def new_comment
+  	
+  end
 end
