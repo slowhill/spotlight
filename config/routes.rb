@@ -1,4 +1,5 @@
 Spotlight::Application.routes.draw do
+  get "testsock/index"
   resources :users do
     resources :podcasts
   end
