@@ -19,13 +19,27 @@
                     data: { confirm: "You sure?" }, class: "btn btn-danger" do %>
 				<i class="icon-trash"></i> Remove Podcast
 				<% end %>
-                                 
 			</li>
 			<% end %>
 		</ul>
 	</div>
 	<div class="span7">
-		Byeworld
+		<div class="navbar">
+			<div class="navbar-inner">
+				<% if @podcast.live %>
+					<%= link_to '#', class: "brand" do %>Currenty Live<% end %>
+				<% else %>
+					<%= link_to '#', class: "brand" do %>Off-Air<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div>
+			<h2 class="lpadding h2ep">Episodes</h2>
+			<% if @podcast.episodes.any? %>
+			<% else %>
+				<p class="lpadding"><b><%= @podcast.name %></b> has not broadcasted an episode yet.</p>
+			<% end %>
+		</div>
 	</div>
 </div>
 </div>
