@@ -24,4 +24,10 @@ $(function(){
   // You can trigger new server events inside this callback if you wish.
   }
   dispatcher.trigger('suspect', null);
+
+  $("#send").click(function() {
+	var data = $("#message").val();
+	dispatcher.trigger('new_comment', data);
+	});
 });
+

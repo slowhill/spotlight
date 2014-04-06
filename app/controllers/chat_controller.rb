@@ -22,6 +22,6 @@ class ChatController < WebsocketRails::BaseController
 
   #user submits a new comment
   def new_comment
-  	
+  	puts data
   end
 end

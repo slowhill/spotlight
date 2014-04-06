@@ -1,5 +1,5 @@
 WebsocketRails::EventMap.describe do
-  subscribe :suspect, 'test#init'
+  subscribe :new_comment, 'Chat#new_comment'
 
   # You can use this file to map incoming events to controller actions.
   # One event can be mapped to any number of controller actions. The
