@@ -1,1 +1,32 @@
-<h1>LET'S MAKE AN EPISODE WOOOOOOOOOO</h1>
+<% provide(:title, "Start a new episode") %>
+<h1>Start a new Episode</h1>
+
+<%= form_for(@episode, :url=>user_podcast_episodes_path(params[:podcast_id], params[:user_id])) do |f| %>
+	<% if @episode.errors.any? %>
+		<div class="alert alert-error">
+		<ul>
+			<% @episode.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			
+		</ul>
+		</div>
+	<% end %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+	<br>Voting System<br>
+	<%= f.radio_button :upvote_type, "Number" %>
+	<%= f.label :upvote_type_number, "Number" %>
+	<%= f.radio_button :upvote_type, "Percent" %>
+	<%= f.label :upvote_type_percent, "Percent" %>
+
+	<%= f.label :min_upvotes, "Voting Threshold" %>
+	<%= f.number_field :min_upvotes, value: "0" %>
+	<p>
+	<%= f.submit "Start a new Episode", class: "btn btn-primary btn-large" %>
+	</p>
+<% end %>

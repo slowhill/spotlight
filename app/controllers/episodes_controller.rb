@@ -11,14 +11,15 @@ class EpisodesController < ApplicationController
 		@podcast = User.find(params[:user_id]).podcasts.find(params[:podcast_id])
 		@episode = @podcast.episodes.build(epcreate_params)
 		if @episode.save 
-			flash.now[:success] = "3, 2, 1.."
-			redirect_to 'show'
+			flash[:success] = "3, 2, 1.."
+			redirect_to user_podcast_episode_path(params[:user_id], params[:podcast_id], @episode.id)
 		else
 			render 'new'
 		end
 	end
 
 	def show
+
 	end
 
 	private
