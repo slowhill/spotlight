@@ -2,26 +2,9 @@
 <!--<div class="hero-unit">-->
 <div class="row">
 	<div class="span3">
-		<ul class="nav nav-list">
-			<li><h1><%= @podcast.name %></h1></li>
-			<li class="podcover"><%= image_tag 'podcastcover.jpg', alt: "chocolate" %></li>
-			<li class="poddescript"><%= @podcast.description %></li>
-			<!-- make it if-contact-exists-soemthing-toolazyatm
-			<li class="list-header">Contact</li>-->
-			<!-- make if-admin-check-->
-			<% if current_user?(@podcast.user) %>
-			<li class="podbuttons"></li>
-			<%= link_to new_user_podcast_episode_path(current_user[:id], @podcast[:id]), class: "btn btn-success btn-block" do %>
-				<i class="icon-bullhorn"></i> Start Broadcast
-				<% end %>
-				<%= link_to user_podcast_path, method: :delete,
-                    data: { confirm: "You sure?" }, class: "btn btn-danger btn-block" do %>
-				<i class="icon-trash"></i> Remove Podcast
-				<% end %>
-			<% end %>
-		</ul>
+		<%= render 'sidebar' %>
 	</div>
-	<div class="span7" id="podcast" data-uri="<%= request.host %>:<%= request.port %>/websocket">
+	<div class="span7">
 		<div class="navbar">
 			<div class="navbar-inner">
 				<% if @podcast.live %>

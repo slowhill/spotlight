@@ -1,32 +1,39 @@
 <% provide(:title, "Start a new episode") %>
-<h1>Start a new Episode</h1>
-
-<%= form_for(@episode, :url=>user_podcast_episodes_path(params[:podcast_id], params[:user_id])) do |f| %>
-	<% if @episode.errors.any? %>
-		<div class="alert alert-error">
-		<ul>
-			<% @episode.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+<div class="row">
+	<div class="span3">
+		<%= render 'sidebar' %>
+	</div>
+	<div class="span7">
+		<%= render partial: 'navbar', locals: {text: "Start a Broadcast"} %>
+		<div>
+		<%= form_for(@episode, :url=>user_podcast_episodes_path(params[:user_id], params[:podcast_id])) do |f| %>
+			<% if @episode.errors.any? %>
+				<div class="alert alert-error">
+				<ul>
+					<% @episode.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+					
+				</ul>
+				</div>
 			<% end %>
-			
-		</ul>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+
+			<%= f.label :description %>
+			<%= f.text_field :description %>
+
+			<br>Voting System<br>
+			<%= f.radio_button :upvote_type, "Number" %>
+			<%= f.label :upvote_type_number, "Number" %>
+			<%= f.radio_button :upvote_type, "Percent" %>
+			<%= f.label :upvote_type_percent, "Percent" %>
+
+			<%= f.label :min_upvotes, "Voting Threshold" %>
+			<%= f.number_field :min_upvotes, value: "0" %>
+			<p>
+			<%= f.submit "Start a new Episode", class: "btn btn-primary btn-large" %>
+			</p>
 		</div>
-	<% end %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-
-	<br>Voting System<br>
-	<%= f.radio_button :upvote_type, "Number" %>
-	<%= f.label :upvote_type_number, "Number" %>
-	<%= f.radio_button :upvote_type, "Percent" %>
-	<%= f.label :upvote_type_percent, "Percent" %>
-
-	<%= f.label :min_upvotes, "Voting Threshold" %>
-	<%= f.number_field :min_upvotes, value: "0" %>
-	<p>
-	<%= f.submit "Start a new Episode", class: "btn btn-primary btn-large" %>
-	</p>
+	</div>
 <% end %>

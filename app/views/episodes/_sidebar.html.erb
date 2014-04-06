@@ -1,0 +1,18 @@
+<ul class="nav nav-list">
+	<li><h1><%= @podcast.name %></h1></li>
+	<li class="podcover"><%= image_tag 'podcastcover.jpg', alt: "chocolate" %></li>
+	<li class="poddescript"><%= @podcast.description %></li>
+	<!-- make it if-contact-exists-soemthing-toolazyatm
+	<li class="list-header">Contact</li>-->
+	<!-- make if-admin-check-->
+	<% if current_user?(@podcast.user) %>
+	<li class="podbuttons"></li>
+	<%= link_to '#', class: "btn btn-success btn-block" do %>
+		<i class="icon-bullhorn"></i> Start Broadcast
+		<% end %>
+		<%= link_to '#',
+            data: { confirm: "You sure?" }, class: "btn btn-danger btn-block" do %>
+		<i class="icon-trash"></i> Remove Podcast
+		<% end %>
+	<% end %>
+</ul>

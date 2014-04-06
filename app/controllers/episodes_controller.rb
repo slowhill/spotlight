@@ -19,7 +19,7 @@ class EpisodesController < ApplicationController
 	end
 
 	def show
-
+		@podcast = User.find(params[:user_id]).podcasts.find(params[:podcast_id])
 	end
 
 	private
