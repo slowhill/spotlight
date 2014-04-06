@@ -1,6 +1,6 @@
 WebsocketRails::EventMap.describe do
-  namespace :podcastmsgs do
-    subscribe :create, :to => PodcastMsgsController, :with_method => :create
+  namespace :chats do
+    subscribe :create, :to => ChatController, :with_method => :create
   end
   # You can use this file to map incoming events to controller actions.
   # One event can be mapped to any number of controller actions. The
