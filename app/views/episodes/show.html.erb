@@ -3,16 +3,54 @@
 	<div class="span3">
 		<%= render 'sidebar'%>
 	</div>
-	<div class="span7">
+	<div class="span9">
 		<% if ishosting?(current_user) %>
 		<%= render partial: 'navbar', locals: {text: "You're broadcasting!"}  %>
 		<div>
-			You're hosting
+			<div name="audio player">
+				Streaming media player thingy
+			</div>
+			<div class="well hostlog">
+				<h4 class="wellhead">User submission past threshold</h4>
+				<table class="table" name="host-table">
+					<tr><td>Hey I'm a user submission! look at me!!! :D</td><td><small class="pull-right">5am</small></td></tr>
+					<tr><td>Hey info here!</td><td><small class="pull-right">5am</small></td></tr>
+					<tr><td>Hey info here!</td><td><small class="pull-right">5am</small></td></tr>
+				</table>
+			</div>
+			<input type="text" class="span8">
+			<button type="submit" class="btn">Submit</button>
+			<div class="well usersubs">
+				<h4 class="wellhead">Your Activity Log</h4>
+				<table class="table">
+					<tr><td>I said xyz</td><td><small class="pull-right">5am</small></td></tr>
+					<tr><td>Link to article I'm talking about</td><td><small class="pull-right">5am</small></td></tr>
+				</table>
+			</div>
 		</div>
 		<% else %>
-		<%= render partial: 'navbar', locals: {text: "Listening to @episode.title"}  %>
+		<%= render partial: 'navbar', locals: {text: "Listening to #{Episode.find(params[:id]).title}" }  %>
 		<div>
-			You're listening
+			<div name="audio player">
+				Audio Player
+			</div>
+			<div class="well hostlog">
+				<h4 class="wellhead">Host's Activity Log</h4>
+				<table class="table">
+					<tr><td>Hey info here!</td><td><small class="pull-right">5am</small></td></tr>
+					<tr><td>Hey info here!</td><td><small class="pull-right">5am</small></td></tr>
+					<tr><td>Hey info here!</td><td><small class="pull-right">5am</small></td></tr>
+				</table>
+			</div>
+			<input type="text" class="span8">
+			<button type="submit" class="btn">Submit</button>
+			<div class="well usersubs">
+				<h4 class="wellhead">User Submissions</h4>
+				<table class="table">
+					<tr><td>SUCK IT I A TROLLLL0L0L0L0L</td><td><small class="pull-right">5am</small></td><td><a href="#"><i class="icon-ok pull-right"></i></a></td></tr>
+					<tr><td>SUCK IT I A TROLLLL0L0L0L0L</td><td><small class="pull-right">5am</small></td><td><a href="#"><i class="icon-ok pull-right"></i></a></td></tr>
+				</table>
+			</div>
 		</div>
 		<% end %>
 	</div>
