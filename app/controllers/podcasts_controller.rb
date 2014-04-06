@@ -1,4 +1,5 @@
 class PodcastsController < ApplicationController
+	# before_action :signed_in_user only: [:create, :destroy]
 	respond_to :html, :json, :xml
 
 	def new
@@ -24,6 +25,12 @@ class PodcastsController < ApplicationController
 
 	def show
 		@podcast = User.find(params[:user_id]).podcasts.find(params[:id])
+	end
+
+	def destroy
+		@podcast = User.find(params[:user_id]).podcasts.find(params[:id])
+		@podcast.destroy
+		redirect_back_or root_url
 	end
 
 	private
