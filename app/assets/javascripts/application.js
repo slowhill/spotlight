@@ -23,11 +23,25 @@ $(function(){
   console.log('Connection has been established: ', data);
   // You can trigger new server events inside this callback if you wish.
   }
-  dispatcher.trigger('suspect', null);
+
+  dispatcher.bind('add_user_submission', function(data) {
+  	$("#user-submissions").append('<tr><td>' + data.message + '</td><td><small class="pull-right">' + data.stime + '</small></td><td><a href="#"><i class="icon-ok pull-right"></i></a></td></tr>');
+	});
+
+  dispatcher.bind('add_host_submission', function(data) {
+  	$("#host-table").append('<tr><td>' + data.message + '</td><td><small class="pull-right">'+data.stime+'</small></td></tr>');
+	});
 
   $("#send").click(function() {
 	var data = $("#message").val();
 	dispatcher.trigger('new_comment', data);
+	$("#message").val('');
+	});
+  //DOESN'T CHECK THAT SUBMISSION WAS FROM ACTUAL HOST YET!!
+  $("#sendhost").click(function() {
+	var data = $("#message").val();
+	dispatcher.trigger('new_comment_host', data);
+	$("#message").val('');
 	});
 });
 

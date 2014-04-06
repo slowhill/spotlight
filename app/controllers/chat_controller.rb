@@ -22,6 +22,12 @@ class ChatController < WebsocketRails::BaseController
 
   #user submits a new comment
   def new_comment
-  	puts data
+    udata = {:message => data, :stime => Time.now.strftime("%I:%M %p")}
+  	broadcast_message :add_user_submission, udata
+  end
+
+  def new_comment_host
+    udata = {:message => data, :stime => Time.now.strftime("%I:%M %p")}
+    broadcast_message :add_host_submission, udata
   end
 end

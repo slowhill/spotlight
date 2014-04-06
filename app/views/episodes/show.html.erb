@@ -12,17 +12,16 @@
 			</div>
 			<div class="well hostlog">
 				<h4 class="wellhead" data-uri="<%= request.host %>:<%= request.port %>/websocket">User submission past threshold</h4>
-				<table class="table" name="host-table">
-					<tr><td>Hey I'm a user submission! look at me!!! :D</td><td><small class="pull-right">5am</small></td></tr>
+				<table class="table" id="user-accepted-table">
+					<!-- User submissions past threshold goes here-->
 				</table>
 			</div>
 			<input type="text" class="span8" id="message">
-			<button type="submit" class="btn" id="send">Submit</button>
+			<button type="submit" class="btn" id="sendhost">Submit</button>
 			<div class="well usersubs">
 				<h4 class="wellhead" data-uri="<%= request.host %>:<%= request.port %>/websocket">Your Activity Log</h4>
-				<table class="table">
-					<tr><td>I said xyz</td><td><small class="pull-right">5am</small></td></tr>
-					<tr><td>Link to article I'm talking about</td><td><small class="pull-right">5am</small></td></tr>
+				<table class="table" id="host-table">
+					<!-- host activity goes here-->
 				</table>
 			</div>
 		</div>
@@ -34,16 +33,16 @@
 			</div>
 			<div class="well hostlog" data-uri="<%= request.host %>:<%= request.port %>/websocket">
 				<h4 class="wellhead">Host's Activity Log</h4>
-				<table class="table">
-					<tr><td>Hey info here!</td><td><small class="pull-right">5am</small></td></tr>
+				<table class="table" id="host-table">
+					<!-- host activity goes here-->
 				</table>
 			</div>
 			<input type="text" class="span8" id="message">
 			<button type="submit" class="btn" id="send">Submit</button>
 			<div class="well usersubs" data-uri="<%= request.host %>:<%= request.port %>/websocket">
 				<h4 class="wellhead">User Submissions</h4>
-				<table class="table">
-					<tr><td>SUCK IT I A TROLLLL0L0L0L0L</td><td><small class="pull-right">5am</small></td><td><a href="#"><i class="icon-ok pull-right"></i></a></td></tr>
+				<table class="table" id="user-submissions">
+					<!-- User submissions goes here-->
 				</table>
 			</div>
 		</div>
