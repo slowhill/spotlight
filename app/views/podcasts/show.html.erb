@@ -9,14 +9,17 @@
 			<!-- make it if-contact-exists-soemthing-toolazyatm
 			<li class="list-header">Contact</li>-->
 			<!-- make if-admin-check-->
-			<% if current_user.id == @podcast.user_id %>
+			<% if current_user?(@podcast.user) %>
 			<li class="podbuttons"><%= link_to '#', class: "btn btn-success" do %>
 				<i class="icon-bullhorn"></i> Start Broadcast
 				<% end %>
 			</li>
-			<li class="podbuttons"><%= link_to '#', class: "btn btn-danger" do %>
+			<li class="podbuttons">
+				<%= link_to user_podcast_path, method: :delete,
+                    data: { confirm: "You sure?" }, class: "btn btn-danger" do %>
 				<i class="icon-trash"></i> Remove Podcast
 				<% end %>
+                                 
 			</li>
 			<% end %>
 		</ul>
