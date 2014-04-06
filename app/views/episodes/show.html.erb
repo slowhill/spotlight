@@ -4,8 +4,16 @@
 		<%= render 'sidebar'%>
 	</div>
 	<div class="span7">
+		<% if ishosting?(current_user) %>
 		<%= render partial: 'navbar', locals: {text: "You're broadcasting!"}  %>
 		<div>
+			You're hosting
 		</div>
+		<% else %>
+		<%= render partial: 'navbar', locals: {text: "Listening to @episode.title"}  %>
+		<div>
+			You're listening
+		</div>
+		<% end %>
 	</div>
 </div>
