@@ -1,7 +1,6 @@
 <% provide(:title, 'Home') %>
 <div class="center hero-unit">
   <h1>Spotlight</h1>
-
   <% if signed_in? %>
   	<% if @current_user.podcasts.any? %>
   		<ul class="nav nav-tabs nav-stacked" style="text-align:left;">
