@@ -6,10 +6,12 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
--Ruby 2.0.0
--Rails 4.0.4
+-Ruby 2.0.0<br>
+-Rails 4.0.4<br>
 
 For websockets refer to: https://github.com/websocket-rails/websocket-rails/wiki
+
+Maybe use FFmpeg for audio streaming? http://www.ffmpeg.org/index.html
 
 
 Please feel free to use a different markup language if you do not plan to run
